@@ -54,34 +54,6 @@
             ]
           },
           {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": -1,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "Trust Boundary"
-            ],
-            "id": "06676ad0-8890-436e-a6be-bdb5ca284579",
-            "source": {
-              "x": 700,
-              "y": 330
-            },
-            "target": {
-              "x": 800,
-              "y": 430
-            }
-          },
-          {
             "position": {
               "x": 900,
               "y": 140
@@ -320,8 +292,8 @@
           },
           {
             "position": {
-              "x": 501,
-              "y": 433
+              "x": 476,
+              "y": 503
             },
             "size": {
               "width": 120,
@@ -697,6 +669,35 @@
             "target": {
               "cell": "e78cdf0a-69d5-4c17-a16f-4e523e6981bd",
               "port": "59d81771-9d7d-4e5e-b5ec-cb3a361e5e01"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 11,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "06676ad0-8890-436e-a6be-bdb5ca284579",
+            "source": {
+              "x": 390,
+              "y": 350
+            },
+            "target": {
+              "x": 710,
+              "y": 350
             },
             "vertices": []
           }
