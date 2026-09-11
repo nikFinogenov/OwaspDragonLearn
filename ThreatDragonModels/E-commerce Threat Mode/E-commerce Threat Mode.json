@@ -20,6 +20,35 @@
         "version": "2.6.2",
         "cells": [
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "06676ad0-8890-436e-a6be-bdb5ca284579",
+            "source": {
+              "x": 390,
+              "y": 350
+            },
+            "target": {
+              "x": 700,
+              "y": 350
+            },
+            "vertices": []
+          },
+          {
             "position": {
               "x": 1230,
               "y": 220
@@ -150,8 +179,8 @@
                 "text": "Web Application"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -248,18 +277,40 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0f3b57cc-5b82-438a-b37c-bd328e820af9",
+                  "title": "SQL Injection",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Зловмисник впроваджує шкідливі SQL-команди через невалідовані поля вводу або параметри запиту вебдодатка, що дозволяє виконувати довільні запити до бази даних",
+                  "mitigation": "Використання параметризованих запитів або ORM, сувора валідація та санітизація вхідних даних за білими списками, а також надання сервісному обліковому запису застосунку в базі даних мінімально необхідних прав",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "120"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
             "position": {
-              "x": 476,
-              "y": 503
+              "x": 471,
+              "y": 510
             },
             "size": {
               "width": 120,
@@ -270,11 +321,13 @@
                 "text": "Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -371,13 +424,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "316f14df-945e-4cfd-b4ab-2b361707769e",
+                  "title": "Несанкціонований доступ до бази даних адміністратором мереж",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Мережевий адміністратор або зловмисник із доступом до мережевої інфраструктури зловживає привілеями для прямого підключення до сховища даних, перехоплення бази на рівні мережі чи зміни конфігурацій доступу з метою отримання прав суперкористувача",
+                  "mitigation": "Розмежування обов’язків і принцип найменших привілеїв, мережеве шифрування трафіку до БД, шифрування даних у стані спокою на рівні колонок або прозоре шифрування з керуванням ключами в зовнішньому HSM/KMS, куди мережеві адміни не мають доступу, а також централізований аудит доступу, недоступний для локальної модифікації.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "75"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -624,22 +697,22 @@
               "protocol": "",
               "threats": [
                 {
-                  "id": "4a2ae708-ee10-4afe-8d93-5722b6115e3a",
+                  "id": "9a13e82f-811f-441d-856b-ee683d855f4c",
                   "title": "Перехоплення облікових даних",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Confidentiality",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "CIA",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Зловмисник у відкритій Wi-Fi мережі може перехопити трафік користувача, якщо він передається без шифрування",
+                  "mitigation": "Використання протоколу TLS (HTTPS) з конфігурацією HSTS",
+                  "modelType": "STRIDE",
                   "new": false,
-                  "number": 1,
-                  "score": ""
+                  "number": 2,
+                  "score": "50"
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
-                "confidentiality": 1,
+                "confidentiality": 0,
                 "integrity": 0,
                 "availability": 0
               }
@@ -655,45 +728,6 @@
             "target": {
               "cell": "fc760011-7c62-438b-88ac-405af7453dd5",
               "port": "9ce70743-bd90-4521-a26d-3b95fdbcbd2f"
-            },
-            "vertices": [],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 11,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "Trust Boundary"
-            ],
-            "id": "06676ad0-8890-436e-a6be-bdb5ca284579",
-            "source": {
-              "x": 390,
-              "y": 350
-            },
-            "target": {
-              "x": 710,
-              "y": 350
             },
             "vertices": []
           },
@@ -731,6 +765,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 1
+    "threatTop": 6
   }
 }
