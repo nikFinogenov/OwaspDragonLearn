@@ -21,7 +21,7 @@
         "cells": [
           {
             "position": {
-              "x": 640.75,
+              "x": 870.75,
               "y": 220
             },
             "size": {
@@ -29,6 +29,9 @@
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "Customer"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -123,7 +126,7 @@
             "id": "2bea9490-c339-4ab6-9e09-9b5d5d166a62",
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "Customer",
               "description": "",
               "isTrustBoundary": false,
               "outOfScope": false,
@@ -136,13 +139,16 @@
           {
             "position": {
               "x": 466,
-              "y": 220
+              "y": 185
             },
             "size": {
-              "width": 60,
-              "height": 60
+              "width": 190,
+              "height": 130
             },
             "attrs": {
+              "text": {
+                "text": "Web Application"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -237,7 +243,7 @@
             "id": "fc760011-7c62-438b-88ac-405af7453dd5",
             "data": {
               "type": "tm.Process",
-              "name": "Process",
+              "name": "Web Application",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -252,14 +258,17 @@
           },
           {
             "position": {
-              "x": 436,
-              "y": 403
+              "x": 501,
+              "y": 433
             },
             "size": {
               "width": 120,
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "Database"
+              },
               "topLine": {
                 "strokeWidth": 1.5,
                 "strokeDasharray": null
@@ -357,7 +366,7 @@
             "zIndex": 3,
             "data": {
               "type": "tm.Store",
-              "name": "Store",
+              "name": "Database",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -373,14 +382,17 @@
           },
           {
             "position": {
-              "x": 230,
+              "x": 162.5,
               "y": 220
             },
             "size": {
-              "width": 112.5,
+              "width": 130,
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "Payment Gateway"
+              },
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
@@ -475,7 +487,7 @@
             "zIndex": 4,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "Payment Gateway",
               "description": "",
               "isTrustBoundary": false,
               "outOfScope": false,
@@ -483,14 +495,148 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTPS Request / Login credentials",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "HTTPS Request / Login credentials"
+            ],
+            "id": "4a1877a1-dd26-44e2-8092-052da59e4abe",
+            "source": {
+              "cell": "2bea9490-c339-4ab6-9e09-9b5d5d166a62",
+              "port": "fc8c0497-f609-4f43-b645-a67462c3c5db"
+            },
+            "target": {
+              "cell": "fc760011-7c62-438b-88ac-405af7453dd5",
+              "port": "9ce70743-bd90-4521-a26d-3b95fdbcbd2f"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SQL Queries / User Data",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "SQL Queries / User Data"
+            ],
+            "id": "995f24dc-de61-4bae-abdd-a7161f9ecba9",
+            "source": {
+              "cell": "fc760011-7c62-438b-88ac-405af7453dd5",
+              "port": "e0282738-bfee-4ad5-80fd-66c5eb427909"
+            },
+            "target": {
+              "cell": "37fbb49a-41cd-42dd-bfaa-c26cc1e5785c",
+              "port": "44399916-9f4a-41cf-b90a-bc13e862fa78"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payment API Call",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Payment API Call"
+            ],
+            "id": "83df5dd6-b779-4c5b-a4ad-c5c9f6523abb",
+            "source": {
+              "cell": "fc760011-7c62-438b-88ac-405af7453dd5",
+              "port": "6a8953e5-5fcc-418c-9e23-1a8efe694e21"
+            },
+            "target": {
+              "cell": "e78cdf0a-69d5-4c17-a16f-4e523e6981bd",
+              "port": "59d81771-9d7d-4e5e-b5ec-cb3a361e5e01"
+            },
+            "vertices": []
           }
         ]
       }
