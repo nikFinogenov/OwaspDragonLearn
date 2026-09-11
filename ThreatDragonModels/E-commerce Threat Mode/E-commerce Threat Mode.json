@@ -621,7 +621,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -642,13 +643,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "cde95708-8050-40a8-91de-9f5922354332",
+                  "title": "Відмова в обслуговуванні під час Чорної П'ятниці",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Аномальний сплеск трафіку та платіжних транзакцій під час розпродажу призводить до вичерпання лімітів запитів з боку шлюзу, вичерпання пулу з'єднань вебдодатка або таймаутів, що паралізує процес оплати для легітимних користувачів.",
+                  "mitigation": "Впровадження асинхронної обробки транзакцій через черги повідомлень для згладжування піків, налаштування патернів відмовостійкості Circuit Breaker та Retry з експоненційним відкатом, узгодження підвищених лімітів і резервних каналів із платіжним провайдером, а також завчасне навантажувальне тестування інтеграції.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "100"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Payment API Call"
@@ -765,6 +785,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 6
+    "threatTop": 7
   }
 }
