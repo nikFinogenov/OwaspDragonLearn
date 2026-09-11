@@ -20,9 +20,43 @@
         "version": "2.6.2",
         "cells": [
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "ee1e79e5-be18-4d47-a868-bb9c217c9eec",
+            "source": {
+              "cell": "fc760011-7c62-438b-88ac-405af7453dd5",
+              "port": "634228ac-8d9b-485a-bc5f-03a668b0014b"
+            },
+            "target": {
+              "cell": "2bea9490-c339-4ab6-9e09-9b5d5d166a62",
+              "port": "219b0275-e2ee-4bc9-b0d0-b06b6612da70"
+            },
+            "vertices": [
+              {
+                "x": 710,
+                "y": 50
+              }
+            ]
+          },
+          {
             "position": {
-              "x": 870.75,
-              "y": 220
+              "x": 900,
+              "y": 140
             },
             "size": {
               "width": 112.5,
@@ -280,6 +314,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -363,7 +398,6 @@
               ]
             },
             "id": "37fbb49a-41cd-42dd-bfaa-c26cc1e5785c",
-            "zIndex": 3,
             "data": {
               "type": "tm.Store",
               "name": "Database",
@@ -401,6 +435,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -484,7 +519,6 @@
               ]
             },
             "id": "e78cdf0a-69d5-4c17-a16f-4e523e6981bd",
-            "zIndex": 4,
             "data": {
               "type": "tm.Actor",
               "name": "Payment Gateway",
